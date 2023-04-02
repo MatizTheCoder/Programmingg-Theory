@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class WorldInteraction : MonoBehaviour
 {
+    NavMeshAgent playerAgent;
+
+    private void Start()
+    {
+        playerAgent = GetComponent<NavMeshAgent>();
+    }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem .current.IsPointerOverGameObject());
+        if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject());
         GetInteraction();
     }
     void GetInteraction()
@@ -22,7 +29,7 @@ public class NewBehaviourScript : MonoBehaviour
             }
             else
             {
-
+                playerAgent.destination = interactionInfo.point;
             }
         }
     }

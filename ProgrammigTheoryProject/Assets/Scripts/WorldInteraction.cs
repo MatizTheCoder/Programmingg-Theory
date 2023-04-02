@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class WorldInteraction : MonoBehaviour
 {
-    NavMeshAgent playerAgent;
+    public NavMeshAgent playerAgent;
 
     private void Start()
     {
@@ -13,7 +13,7 @@ public class WorldInteraction : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject());
+        if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         GetInteraction();
     }
     void GetInteraction()
@@ -25,7 +25,7 @@ public class WorldInteraction : MonoBehaviour
             GameObject interactedObject = interactionInfo.collider.gameObject;
             if(interactedObject.tag == "Interactable Object")
             {
-                Debug.Log("Interactable interacted");
+                interactedObject.GetComponent<Interactable>().MoveToInteraction(playerAgent);
             }
             else
             {

@@ -10,6 +10,8 @@ public class Interactable : MonoBehaviour
     {
         this.playerAgent = playerAgent;
         playerAgent.destination = this.transform.position;
+
+        Interact();
     }
 
     public virtual void Interact()
